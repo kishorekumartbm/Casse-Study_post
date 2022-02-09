@@ -30,3 +30,12 @@ And('I verify the updated post',()=>{
     testObject.verifyTheUpdatedPost()
 })
 
+Then('I Delete the post',()=>{
+    testObject.deleteThePost()
+})
+
+Given('I Move to global feed',()=>{
+    testObject.clickGlobalFeed()
+})
+
+

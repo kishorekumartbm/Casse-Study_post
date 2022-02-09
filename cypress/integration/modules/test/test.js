@@ -2,6 +2,7 @@
 const signInBtn ='.nav-link[href="#login"]'
 const usernameLbl ='ul :nth-child(4) a'
 const newPostLink='[href="#editor"]'
+const globalFeedLink ='.nav.nav-pills.outline-active :nth-child(2) a'
 
 //Login Page
 const emailTxtBox='input[type="email"]'
@@ -17,6 +18,7 @@ const submitArticleBtn='button'
 
 //Post Page
 const editBtn ='.btn.btn-outline-secondary.btn-sm'
+const deleteBtn='.btn.btn-outline-danger.btn-sm'
 
 class testObject{
     static launch(){
@@ -85,6 +87,23 @@ class testObject{
             const posttitle = post.title
             cy.get('h1').should('contain','updated')
         })
+    }
+
+    static deleteThePost(){
+        cy.wait(5000)
+        cy.get('.preview-link')
+         .find('h1').then(title=>{
+         cy.wrap(title)    
+           .first()
+           .click()
+          
+         })
+         
+        cy.get(deleteBtn).click()
+    }
+
+    static clickGlobalFeed(){
+        cy.get(globalFeedLink).click()
     }
 }
 
